@@ -28,7 +28,12 @@ class _AppPageState extends State<appPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hofstra University'),
+        backgroundColor: Colors.white,
+        title: Image.asset(
+          "lib/img/hofstra_university_logo.jpg",
+          height: 120.0,
+          width: 170.0,
+        ),
       ),
 
       // This is what allows us to switch pages when you click on the icon at the bottom navigator
