@@ -67,8 +67,10 @@ flutter:
     - lib/img/HofUSA.jpg
     - lib/img/dutch_treat.jpg
     - lib/img/swamp_wallpaper.jpg
-    - lib/img/firebase_logo.jpg
-    - lib/img/google_logo.jpg
+    - lib/img/google_logo.png
+    - lib/img/hofstra_pride_logo.jpg
+    - lib/img/hofstra_pride_logo2.jpg
+    - lib/img/hofstra_university.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
