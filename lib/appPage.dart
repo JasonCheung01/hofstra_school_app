@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'homePage.dart';
 import 'dinerPage.dart';
-import 'calendarPage.dart';
+import 'reminderPage.dart';
 import 'profilePage.dart';
 
 class appPage extends StatefulWidget {
@@ -11,10 +11,12 @@ class appPage extends StatefulWidget {
 
 class _AppPageState extends State<appPage> {
   int current_idx = 0;
+  Icon customIcon = const Icon(Icons.search);
+
   final List<Widget> _iconPages = [
     homePage(),
     dinerPage(),
-    calendarPage(),
+    reminderPage(),
     profilePage(),
   ];
 
@@ -34,6 +36,39 @@ class _AppPageState extends State<appPage> {
           height: 120.0,
           width: 170.0,
         ),
+        // actions: <Widget>[
+        //   IconButton(
+        //     onPressed: () {
+        //       setState(() {
+        //         if (customIcon.icon == Icons.search) {
+        //           customIcon = new Icon(Icons.close);
+        //           Widget _searchbar = ListTile(
+        //             leading: Icon(
+        //               Icons.search,
+        //               color: Colors.black,
+        //               size: 28,
+        //             ),
+        //             title: TextField(
+        //               decoration: InputDecoration(
+        //                 hintText: 'Search...',
+        //                 hintStyle: TextStyle(
+        //                   color: Colors.black,
+        //                   fontSize: 16,
+        //                 ),
+        //                 border: InputBorder.none,
+        //               ),
+        //               style: TextStyle(color: Colors.black),
+        //             ),
+        //           );
+        //         } else {
+        //           customIcon = const Icon(Icons.search);
+        //         }
+        //       });
+        //     },
+        //     icon: customIcon,
+        //     color: Colors.black,
+        //   )
+        //],
       ),
 
       // This is what allows us to switch pages when you click on the icon at the bottom navigator
@@ -48,7 +83,7 @@ class _AppPageState extends State<appPage> {
           BottomNavigationBarItem(
               title: Text('Diner'), icon: Icon(Icons.restaurant)),
           BottomNavigationBarItem(
-              title: Text('Calendar'), icon: Icon(Icons.calendar_today)),
+              title: Text('Reminder'), icon: Icon(Icons.calendar_today)),
           BottomNavigationBarItem(
               title: Text('Profile'), icon: Icon(Icons.account_circle)),
         ],

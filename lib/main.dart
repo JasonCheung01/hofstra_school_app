@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'appPage.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Hofstra University Student App',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: appPage());
+        // home: appPage());
+        home: FutureBuilder(
+          future: _fbApp,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              print('You have an error! ${snapshot.error.toString()}');
+              return Text('Something went wrong');
+            } else if (snapshot.hasData) {
+              return appPage();
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ));
   }
 }
-
 
 // class _HomePageState extends State<homePage> {
 //   Widget build(BuildContext context) {
@@ -50,4 +68,3 @@ class MyApp extends StatelessWidget {
 //         ));
 //   }
 // }
-

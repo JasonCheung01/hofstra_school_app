@@ -9,7 +9,7 @@ class _HomePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: new Center(
-        child: new Text('This is the home page'),
+        child: new Text('Under Development using Server and Database'),
       ),
     );
   }
