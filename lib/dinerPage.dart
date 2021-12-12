@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'studentCenterSchedule.dart';
-import 'hof_usa_Schedule.dart';
+import 'abp_schedule.dart';
+import 'bits_and_byteSchedule.dart';
+import 'dunkin_donutSchedule.dart';
 import 'dutch_treatSchedule.dart';
+import 'hof_usa_Schedule.dart';
+import 'starbuck_schedule.dart';
+import 'studentCenterSchedule.dart';
 
 class dinerPage extends StatefulWidget {
   @override
@@ -10,9 +14,13 @@ class dinerPage extends StatefulWidget {
 
 class _DinerPageState extends State<dinerPage> {
   final List<String> places = <String>[
-    'Student Center',
+    'Au Bon Pain',
+    'Bits and Byte',
+    'Dunkin Donut',
+    'Dutch Treat',
     'HofUSA',
-    'Dutch Treat'
+    'Starbuck',
+    'Student Center',
   ];
 
   Widget build(BuildContext context) {
@@ -20,20 +28,49 @@ class _DinerPageState extends State<dinerPage> {
       children: <Widget>[
         ListTile(
           leading: CircleAvatar(
-            backgroundImage:
-                AssetImage("lib/img/Hofstra_University_Student_Center.jpg"),
+            backgroundImage: AssetImage("lib/img/abp_logo.jpg"),
           ),
           title: Text('${places[0]}'),
           trailing: Icon(Icons.keyboard_arrow_right),
           contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+          onTap: () => Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => abpSchedule())),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("lib/img/bits_and_bytes.jpg"),
+          ),
+          title: Text('${places[1]}'),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
           onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => studentCenterSchedule())),
+              MaterialPageRoute(builder: (context) => bit_and_byte_Schedule())),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("lib/img/DD_logo.png"),
+          ),
+          title: Text('${places[2]}'),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+          onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => dunkinDonutSchedule())),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("lib/img/dutch_treat.jpg"),
+          ),
+          title: Text('${places[3]}'),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+          onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => dutch_treatSchedule())),
         ),
         ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage("lib/img/HofUSA.jpg"),
           ),
-          title: Text('${places[1]}'),
+          title: Text('${places[4]}'),
           trailing: Icon(Icons.keyboard_arrow_right),
           contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
           onTap: () => Navigator.of(context).push(
@@ -41,13 +78,24 @@ class _DinerPageState extends State<dinerPage> {
         ),
         ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage("lib/img/dutch_treat.jpg"),
+            backgroundImage: AssetImage("lib/img/starbuck_logo.png"),
           ),
-          title: Text('${places[2]}'),
+          title: Text('${places[5]}'),
           trailing: Icon(Icons.keyboard_arrow_right),
           contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
           onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => dutch_treatSchedule())),
+              MaterialPageRoute(builder: (context) => starbuckSchedule())),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage:
+                AssetImage("lib/img/Hofstra_University_Student_Center.jpg"),
+          ),
+          title: Text('${places[6]}'),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+          onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => studentCenterSchedule())),
         ),
       ],
     );

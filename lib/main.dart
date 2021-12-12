@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hofstra_school_app/sign_in_screen.dart';
+import 'server_function.dart';
 import 'appPage.dart';
 
 Future<void> main() async {

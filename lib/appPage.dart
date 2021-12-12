@@ -1,10 +1,22 @@
+// ignore_for_file: deprecated_member_use, non_constant_identifier_names, file_names
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'sign_in_screen.dart';
+import 'authentications.dart';
 import 'homePage.dart';
 import 'dinerPage.dart';
 import 'reminderPage.dart';
 import 'profilePage.dart';
 
 class appPage extends StatefulWidget {
+  const appPage({Key? key, required User user})
+      : _user = user,
+        super(key: key);
+
+  final User _user;
+
   @override
   State<appPage> createState() => _AppPageState();
 }
@@ -12,6 +24,7 @@ class appPage extends StatefulWidget {
 class _AppPageState extends State<appPage> {
   int current_idx = 0;
   Icon customIcon = const Icon(Icons.search);
+  late User _user;
 
   final List<Widget> _iconPages = [
     homePage(),
@@ -26,7 +39,14 @@ class _AppPageState extends State<appPage> {
     });
   }
 
+  @override
+  void initState() {
+    _user = widget._user;
+    super.initState();
+  }
+
 // This builds our bottom navigation bar
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -36,39 +56,6 @@ class _AppPageState extends State<appPage> {
           height: 120.0,
           width: 170.0,
         ),
-        // actions: <Widget>[
-        //   IconButton(
-        //     onPressed: () {
-        //       setState(() {
-        //         if (customIcon.icon == Icons.search) {
-        //           customIcon = new Icon(Icons.close);
-        //           Widget _searchbar = ListTile(
-        //             leading: Icon(
-        //               Icons.search,
-        //               color: Colors.black,
-        //               size: 28,
-        //             ),
-        //             title: TextField(
-        //               decoration: InputDecoration(
-        //                 hintText: 'Search...',
-        //                 hintStyle: TextStyle(
-        //                   color: Colors.black,
-        //                   fontSize: 16,
-        //                 ),
-        //                 border: InputBorder.none,
-        //               ),
-        //               style: TextStyle(color: Colors.black),
-        //             ),
-        //           );
-        //         } else {
-        //           customIcon = const Icon(Icons.search);
-        //         }
-        //       });
-        //     },
-        //     icon: customIcon,
-        //     color: Colors.black,
-        //   )
-        //],
       ),
 
       // This is what allows us to switch pages when you click on the icon at the bottom navigator
@@ -78,7 +65,7 @@ class _AppPageState extends State<appPage> {
         type: BottomNavigationBarType.fixed,
         onTap: tappedIcon,
         currentIndex: current_idx,
-        items: [
+        items: const [
           BottomNavigationBarItem(title: Text('Home'), icon: Icon(Icons.home)),
           BottomNavigationBarItem(
               title: Text('Diner'), icon: Icon(Icons.restaurant)),
