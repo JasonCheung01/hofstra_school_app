@@ -5,6 +5,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'authentications.dart';
+import 'server/server_object.dart';
+import 'server/server_function.dart';
 
 class homePage extends StatefulWidget {
   @override
@@ -20,6 +22,19 @@ class _HomePageState extends State<homePage> {
   String _class4 = "";
   String _class5 = "";
   // Map<String, dynamic> lists = [] as Map<String, dynamic>;
+
+  var test = new Users(
+      birthday: 'October 21, 2001',
+      schedule: [
+        "CSC 120: Algorithm & Data Structure",
+        "CSC 161: Intro Automata Theory",
+        "CSC 184: Mobile Device Programming",
+        "CSC 289: Advance Software Engineering",
+        "ENGL 181: Graphic Novel Literature"
+      ],
+      email: 'jcheung1@pride.hofstra.edu',
+      major: 'Computer Science',
+      name: 'Jason Cheung');
 
   _getUserAuth() {
     var firebaseUser = FirebaseAuth.instance.currentUser!.uid;
@@ -93,6 +108,9 @@ class _HomePageState extends State<homePage> {
                   children: [
                     Row(),
                     const SizedBox(height: 12.0),
+                    // new TextButton(
+                    //     onPressed: () => updateUser(test),
+                    //     child: const Text("Hi")),
                     const Text("My Student Schedule",
                         style: TextStyle(
                             color: Colors.black,

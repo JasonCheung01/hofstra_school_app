@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'abp_schedule.dart';
-import 'bits_and_byteSchedule.dart';
-import 'dunkin_donutSchedule.dart';
-import 'dutch_treatSchedule.dart';
-import 'hof_usa_Schedule.dart';
-import 'starbuck_schedule.dart';
-import 'studentCenterSchedule.dart';
+import 'schedule/abp_schedule.dart';
+import 'schedule/bits_and_byteSchedule.dart';
+import 'schedule/dunkin_donutSchedule.dart';
+import 'schedule/dutch_treatSchedule.dart';
+import 'schedule/hof_usa_Schedule.dart';
+import 'schedule/starbuck_schedule.dart';
+import 'schedule/studentCenterSchedule.dart';
 
 class dinerPage extends StatefulWidget {
   @override
