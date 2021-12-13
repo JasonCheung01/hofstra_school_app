@@ -21,8 +21,8 @@ class _DunkinDonutScheduleState extends State<dunkinDonutSchedule> {
     '7:30 am - 6:00 pm',
     '7:30 am - 6:00 pm',
     '7:30 am - 5:00 pm',
-    'Closed',
-    'Closed'
+    'Closed - Closed',
+    'Closed - Closed'
   ];
 
   Widget build(BuildContext context) {
